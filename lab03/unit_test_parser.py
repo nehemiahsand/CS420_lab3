@@ -1,4 +1,3 @@
-from fileinput import filename
 from byte_code.python_312.uabcs_parser import uabcs_parser
 
 
