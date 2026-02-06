@@ -1,4 +1,4 @@
-from byte_code.python_312.uabcs_parser import uabcs_parser
+from byte_code.python_312.uabcs_parser import uabcs_parser  # type: ignore
 
 
 ############ Parser File Tests ############
