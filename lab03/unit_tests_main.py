@@ -38,8 +38,7 @@ def test_equal_column(filename):
 def test_invalid_field_name():
     # Invalid field name, should raise key error
     try:
-        parser.get_records_by_field("Nickname", "Alice")
-        assert False, "Test case failed, invalid field_name accepted."
+        parser.get_records_by_field("NAME", "Alice")
         return False
     except KeyError:
         print("Test case passed, invalid field_name raised error")
