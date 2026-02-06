@@ -17,7 +17,7 @@ def test_invalid_field_name():
     try:
         test_parser.get_records_by_field("Nickname", "Alice")
         assert False, "Test case failed, invalid field_name accepted."
-        Return False
+        return False
     except KeyError:
         print ("Test case passed, invalid field_name raised error")
         return True
