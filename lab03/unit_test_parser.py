@@ -31,10 +31,10 @@ def test_file_not_found():
         return True
 
 
-def test_unequal_column(filename):
+def test_equal_column(filename):
     try:
-        entrylength = len(parser.get_column_names())
         data = parser.parse_file(filename)
+        entrylength = len(parser.get_column_names())
         for d in data:
             assert len(d) == entrylength
         return True
@@ -46,3 +46,17 @@ def test_unequal_column(filename):
 
 # Initialize a parser instance
 parser = uabcs_parser()
+
+# Execution
+if __name__ == "__main__":
+    passed = [
+        test_valid_file_extension(),
+        test_file_not_found(),
+        test_equal_column("student_grades.uabcs"),
+    ]
+
+print(f"\nUnit Testing uabcs_parser.parse_file")
+print(f"-----------------------------")
+print(f"Passed " + str(passed.count(True)) + " tests")
+print(f"Failed " + str(passed.count(False)) + " tests")
+print("")
