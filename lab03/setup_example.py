@@ -10,5 +10,4 @@ parser = uabcs_parser()
 data = parser.parse_file("student_grades.uabcs")
 
 # print the data
-# print(data)
-print(f"Column names: {len(parser.get_column_names())}")
+print(data)
