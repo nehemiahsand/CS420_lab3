@@ -30,6 +30,35 @@ def test_equal_column(filename):
     except ValueError:
         return False
 
+############## Get Column Names Tests ##############
+def check_column_type():
+    try:
+        parser.parse_file("student_grades.uabcs")
+        output = parser.get_column_names()
+        assert isinstance(output, list)
+        return True
+    except AssertionError:
+        return False
+
+def check_column_output():
+    try:
+        parser.parse_file("student_grades.uabcs")        
+        expected = ['NAME', 'SUBJECT', 'GRADE', 'PASS', 'POINTS']
+        actual = parser.get_column_names()
+        assert expected == actual
+        return True
+    except AssertionError:
+        return False
+
+def check_internal_state():
+    try:
+        parser.parse_file("student_grades.uabcs")        
+        output = parser.get_column_names()
+        output.append("NEW_COLUMN")
+        assert output != parser.get_column_names()
+        return True
+    except Exception:
+        return False
 
 ############## Records by field tests ##############
 
@@ -65,11 +94,14 @@ if __name__ == "__main__":
         test_valid_file_extension(),
         test_file_not_found(),
         test_equal_column("student_grades.uabcs"),
+        check_column_type(),
+        check_column_output(),
+        check_internal_state(),
         test_invalid_field_name(),
         test_no_value_matches(),
     ]
 
-    print(f"\nUnit Testing uabcs_parser.parse_file and get_records_by_field")
+    print(f"\nUnit Testing uabcs_parser.parse_file, get_column_names, and get_records_by_field")
     print(f"-----------------------------")
     print(f"Passed " + str(passed.count(True)) + " tests")
     print(f"Failed " + str(passed.count(False)) + " tests")
