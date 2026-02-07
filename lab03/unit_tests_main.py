@@ -115,5 +115,5 @@ if __name__ == "__main__":
     print(f"Failed " + str(passed.count(False)) + " tests")
     print("")
 
-    for i in passed:
-        print(i)
+    # for i in passed:
+    #     print(i)
