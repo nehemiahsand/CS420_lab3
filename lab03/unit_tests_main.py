@@ -35,6 +35,7 @@ def test_equal_column(filename):
 
 
 def check_column_type():
+    #check the expected column type against the actual column type
     try:
         parser.parse_file("student_grades.uabcs")
         output = parser.get_column_names()
@@ -45,6 +46,7 @@ def check_column_type():
 
 
 def check_column_output():
+    #check the expected output is equal to the actual output
     try:
         parser.parse_file("student_grades.uabcs")
         expected = ["NAME", "SUBJECT", "GRADE", "PASS", "POINTS"]
@@ -56,6 +58,8 @@ def check_column_output():
 
 
 def check_internal_state():
+    #check that a modification to the returned list does not affect the state 
+    # of the column names in the file itself
     try:
         parser.parse_file("student_grades.uabcs")
         output = parser.get_column_names()
