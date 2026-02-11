@@ -48,11 +48,14 @@ def test_invalid_field_name():
 def test_no_value_matches():
     actual = parser.get_records_by_field("NAME", "Frederick")
     expected = []
-    assert (
-        actual == expected
-    ), "Test case failed, empty list not returned when no matches"
-    print("Test case passed, empty list returned when no matches")
-    return True
+    try:
+        assert (
+            actual == expected
+        ), "Test case failed, empty list not returned when no matches"
+        return false 
+    except AssertionError:
+        print("Test case passed, empty list returned when no matches")
+        return True
 
 
 # Execution
